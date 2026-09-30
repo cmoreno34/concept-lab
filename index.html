@@ -93,9 +93,9 @@ pre.prompt{background:#14211b;color:#e8efe6;border-radius:10px;padding:14px;marg
 
 <div class="step" style="--c:var(--c1)">
   <h2><span class="n">1</span> Narrow the topic</h2>
-  <p class="lead">A concept needs a specific problem and a specific person. Who exactly is it for, and what tension are you solving?</p>
-  <label class="fl" for="w_focus">Your angle — for whom, and the problem you'll solve</label>
-  <textarea id="w_focus" placeholder="e.g. Travel — for first-time solo travellers (20-25) who want to go but are anxious about doing it alone."></textarea>
+  <p class="lead"><b>What to do:</b> the topic above is broad. In one or two sentences, write your own angle — name the <b>exact person</b> it is for and the <b>specific problem</b> you want to solve for them. Everything after this builds on what you write here, so be concrete (an age, a situation, a real frustration).</p>
+  <label class="fl" for="w_focus">Write your angle — for whom, and the problem you'll solve</label>
+  <textarea id="w_focus" placeholder="e.g. Travel — for first-time solo travellers aged 20-25 who really want to go but feel anxious about doing a trip completely alone."></textarea>
 </div>
 
 <div class="step" style="--c:var(--c2)">
@@ -122,7 +122,13 @@ pre.prompt{background:#14211b;color:#e8efe6;border-radius:10px;padding:14px;marg
   </div>
   <button class="copybtn" data-p="pillars" style="margin-top:8px">copy the "sharpen my pillars" prompt</button>
   <pre class="prompt" data-pre="pillars"></pre>
-  <p class="hint" style="color:var(--leaf-ink)"><b>↑ Then update the four boxes above with the AI's sharpened version.</b> These four boxes are the source — the draft, the battery and the MVP prompts all use whatever is in them right now. Overwrite your draft with the better wording before you move on.</p>
+  <p class="lead" style="margin:10px 0 6px;color:var(--leaf-ink)"><b>Now write the FINAL version here</b> — paste the AI's sharpened pillars into these four boxes. From here on the tool uses this final version (if you leave them empty it falls back to your draft above).</p>
+  <div class="grid2">
+    <div><label class="fl" for="pf_insight">① Insight — final</label><textarea id="pf_insight" placeholder="Sharpened insight."></textarea></div>
+    <div><label class="fl" for="pf_ben">② Benefit — final</label><textarea id="pf_ben" placeholder="Sharpened benefit."></textarea></div>
+    <div><label class="fl" for="pf_rtb">③ Reason to believe — final</label><textarea id="pf_rtb" placeholder="Sharpened reason to believe."></textarea></div>
+    <div><label class="fl" for="pf_diff">④ Differentiator — final</label><textarea id="pf_diff" placeholder="Sharpened differentiator."></textarea></div>
+  </div>
 </div>
 
 <div class="step" style="--c:var(--c4)">
@@ -130,22 +136,30 @@ pre.prompt{background:#14211b;color:#e8efe6;border-radius:10px;padding:14px;marg
   <p class="lead">The prompt asks AI to write the concept from your pillars AND offer several alternatives (60-100 words each). Read them, then keep the <b>three</b> you'd actually test.</p>
   <button class="copybtn" data-p="draft">copy the "draft + alternatives" prompt</button>
   <pre class="prompt" data-pre="draft"></pre>
-  <label class="fl" for="w_three">Your three chosen concepts (paste them here)</label>
-  <textarea id="w_three" style="min-height:120px" placeholder="Concept A — … (60-100 words)&#10;Concept B — …&#10;Concept C — …"></textarea>
+  <p class="lead" style="margin:6px 0 8px">Paste the <b>three</b> you keep, one per box. The prompt gives you a range, so keep three that differ in <b>purpose</b>:</p>
+  <label class="fl" for="w_c1">Concept A — the safe one (close to the obvious idea)</label>
+  <textarea id="w_c1" placeholder="Paste concept A (60-100 words)."></textarea>
+  <div class="wc" id="wc1">0 words</div>
+  <label class="fl" for="w_c2">Concept B — the strong-insight one (built on the deepest insight)</label>
+  <textarea id="w_c2" placeholder="Paste concept B (60-100 words)."></textarea>
+  <div class="wc" id="wc2">0 words</div>
+  <label class="fl" for="w_c3">Concept C — the bold one (most disruptive)</label>
+  <textarea id="w_c3" placeholder="Paste concept C (60-100 words)."></textarea>
+  <div class="wc" id="wc3">0 words</div>
 </div>
 
 <div class="step" style="--c:var(--c5)">
-  <h2><span class="n">5</span> Check the lead concept — 60-100 words, four elements</h2>
-  <p class="lead">Paste the ONE concept you'll test first. The counter checks the length; tick that each element is really in there.</p>
-  <label class="fl" for="w_final">Lead concept (the one you test first)</label>
-  <textarea id="w_final" style="min-height:90px" placeholder="Paste the sharpened 60-100 word concept you'll put in front of people."></textarea>
-  <div class="wc" id="wc">0 words</div>
+  <h2><span class="n">5</span> Check the three, then pick your lead</h2>
+  <p class="lead"><b>What to do:</b> copy the check prompt (it checks all three at once — 60–100 words and the four elements), fix any that fail in the boxes above, then paste your strongest one into the lead box so the test, battery and MVP use it.</p>
+  <button class="copybtn" data-p="check">copy the "check my three concepts" prompt</button>
+  <pre class="prompt" data-pre="check"></pre>
+  <p class="lead" style="margin:4px 0 6px">Every one of your three concepts must pass these four — use them as your manual check too:</p>
   <div class="check" id="check"></div>
 </div>
 
 <div class="step" style="--c:var(--c6)">
   <h2><span class="n">6</span> Build the test battery — AI helps (no scales needed yet)</h2>
-  <p class="lead">A concept test asks a few standard questions. You haven't studied scales yet, so here they are in plain words — the same for any concept. The prompt turns them into a ready survey for your concept.</p>
+  <p class="lead"><b>What to do:</b> these six questions are the survey you'll run to test the concepts. You haven't studied scales yet, so they're written in plain words below. Copy the prompt, let AI turn them into a ready survey that measures all three concepts, and <b>paste that survey in the box</b> so it's in your PDF.</p>
   <div class="batt" id="batt"></div>
   <details style="margin:2px 0 10px"><summary class="copybtn" style="display:inline-block">▸ see the battery written out for an example</summary>
     <div class="case" style="margin-top:8px;font-size:13.5px">
@@ -161,6 +175,8 @@ pre.prompt{background:#14211b;color:#e8efe6;border-radius:10px;padding:14px;marg
   </details>
   <button class="copybtn" data-p="battery">copy the "build my survey" prompt</button>
   <pre class="prompt" data-pre="battery"></pre>
+  <label class="fl" for="w_survey">Your survey (paste what the AI built)</label>
+  <textarea id="w_survey" placeholder="Paste the ready survey — the six questions, asked about each of the three concepts."></textarea>
 </div>
 
 <div class="step" style="--c:var(--c2)">
@@ -171,9 +187,12 @@ pre.prompt{background:#14211b;color:#e8efe6;border-radius:10px;padding:14px;marg
     <div class="bi"><b>Comparative</b> — each person sees all three and ranks them. Faster and fewer people; shows relative preference. Rotate the order so concept A isn't always first.</div>
     <div class="bi"><b>Protocol basics either way:</b> one concept per screen · decide price shown or hidden (say which) · ask the SAME battery every time · define the target audience · aim for a realistic number per concept.</div>
   </div>
+  <p class="lead" style="margin:2px 0 6px"><b>What to do:</b> pick monadic or comparative below, copy the prompt, then write your test plan in the box.</p>
   <div class="chips" id="tests"></div>
   <button class="copybtn" data-p="test">copy the "write my protocol" prompt</button>
   <pre class="prompt" data-pre="test"></pre>
+  <label class="fl" for="w_protocol">Your test plan (audience · people per concept · monadic/comparative · price shown or hidden · order)</label>
+  <textarea id="w_protocol" placeholder="e.g. Comparative test, 30 people, each sees all 3 in rotated order, price shown, our battery after each. Target: students 18-25."></textarea>
 </div>
 
 <div class="step" style="--c:var(--c3)">
@@ -184,17 +203,28 @@ pre.prompt{background:#14211b;color:#e8efe6;border-radius:10px;padding:14px;marg
     <a class="t2" href="https://gamma.app" target="_blank" rel="noopener">Gamma<span>build the landing page</span></a>
     <a class="t2" href="https://claude.ai" target="_blank" rel="noopener">Claude<span>write the copy</span></a>
   </div>
-  <button class="copybtn" data-p="mvp">copy the "help me build an MVP" prompt</button>
+  <p class="lead" style="margin:2px 0 6px"><b>What to do:</b> the prompt designs an MVP for each of your three concepts. Paste each one in its box — type, what you'd build, and the ONE metric.</p>
+  <button class="copybtn" data-p="mvp">copy the "MVP for each concept" prompt</button>
   <pre class="prompt" data-pre="mvp"></pre>
-  <label class="fl" for="w_mvp">Your MVP plan — type, what you'll build, and the ONE metric</label>
-  <textarea id="w_mvp" placeholder="e.g. Landing-page test: a one-page site for NightTrain with a ‘Join the waitlist’ button. Metric: % of visitors who sign up. Paste the headline/CTA the AI wrote."></textarea>
+  <label class="fl" for="w_mvp1">MVP for Concept A</label>
+  <textarea id="w_mvp1" placeholder="e.g. Landing-page test: one-page site + ‘Join the waitlist’ button. Metric: sign-up rate. (paste the headline/CTA the AI wrote)"></textarea>
+  <label class="fl" for="w_mvp2">MVP for Concept B</label>
+  <textarea id="w_mvp2" placeholder="Type · what you'd build · the ONE metric."></textarea>
+  <label class="fl" for="w_mvp3">MVP for Concept C</label>
+  <textarea id="w_mvp3" placeholder="Type · what you'd build · the ONE metric."></textarea>
 </div>
 
 <div class="step" style="--c:var(--c4)">
-  <h2><span class="n">9</span> Decide</h2>
-  <p class="lead">Which concept do you take forward, and what result decides it — from the concept test and the MVP together?</p>
-  <label class="fl" for="w_dec">Your decision + the go / refine / kill rule</label>
-  <textarea id="w_dec" style="min-height:88px" placeholder="e.g. Test all three comparatively; take the one with the highest purchase intent IF relevance drives it. Kill any below 35%. Confirm with the landing-page sign-up rate before building more."></textarea>
+  <h2><span class="n">9</span> Decide — a verdict for each concept</h2>
+  <p class="lead"><b>What to do:</b> for EACH of the three, give a verdict — <b>go / refine / kill</b> — and one line of why (from the concept test and the MVP together). Then name the one you take forward.</p>
+  <label class="fl" for="w_dec_a">Concept A — go / refine / kill, and why</label>
+  <textarea id="w_dec_a" placeholder="e.g. REFINE — strong relevance but low uniqueness; sharpen the differentiator."></textarea>
+  <label class="fl" for="w_dec_b">Concept B — go / refine / kill, and why</label>
+  <textarea id="w_dec_b" placeholder="e.g. GO — highest purchase intent AND best landing-page sign-up."></textarea>
+  <label class="fl" for="w_dec_c">Concept C — go / refine / kill, and why</label>
+  <textarea id="w_dec_c" placeholder="e.g. KILL — bold but nobody believed it could deliver."></textarea>
+  <label class="fl" for="w_decwin" style="margin-top:10px">The one you take forward — and the rule behind it</label>
+  <textarea id="w_decwin" style="min-height:70px" placeholder="e.g. Take Concept B: it wins on intent and behaviour. Rule: go only if intent top-2-box > 55% and the MVP sign-up beats 8%."></textarea>
 </div>
 
 <div class="bar">
@@ -210,8 +240,8 @@ const $=s=>document.querySelector(s);
 const TOPICS={
  travel:{name:"✈️ A new way to travel",tag:"for people 18–30",
    brief:"Design a new travel product, service or experience for young people (18–30). It could solve planning, cost, safety, meeting people, finding local experiences — you decide the angle."},
- find:{name:"🔎 A new way to find it",tag:"something students struggle to find",
-   brief:"Design a new way for young people to FIND something they struggle to find — a flat or flatmate, second-hand gear, weekend plans, study help, a part-time gig. Pick one thing and solve the search for it."}
+ food:{name:"🥤 A new food or drink",tag:"for young people",
+   brief:"Design a new food or drink product for young people — a snack, a drink, a quick meal. It could solve energy, health, convenience, price or taste. You decide the angle and who exactly it is for."}
 };
 const TESTS=["Monadic — each person sees ONE concept","Comparative — each person sees all 3 and ranks them"];
 const BATTERY=[
@@ -247,28 +277,31 @@ $('#batt').innerHTML=BATTERY.map(([n,d])=>`<div class="bi"><b>${n}.</b> ${d}`+`<
 const CHECKS=["It states the INSIGHT / problem, in the customer's world","It promises ONE main benefit (not three)","It gives a reason to BELIEVE it","It says what makes it DIFFERENT"];
 $('#check').innerHTML=CHECKS.map((t,i)=>`<label><input type="checkbox" id="ck${i}"> ${t}</label>`).join('');
 function countWords(s){return (s.trim().match(/\S+/g)||[]).length;}
-function refreshWC(){const n=countWords(val('w_final'));const el=$('#wc');el.textContent=n+' words'+(n?` — target 60–100`:'');el.className='wc '+((n>=60&&n<=100)?'ok':(n?'bad':''));}
+function wcOne(srcId,elId){const n=countWords(val(srcId));const el=$('#'+elId);if(!el)return;el.textContent=n+' words'+(n?' — target 60–100':'');el.className='wc '+((n>=60&&n<=100)?'ok':(n?'bad':''));}
+function updateCounts(){wcOne('w_c1','wc1');wcOne('w_c2','wc2');wcOne('w_c3','wc3');}
 
 // prompts
 function P(){
  const c=TOPICS[current];const focus=val('w_focus')||'[for whom + the problem]';
- const pil=`Insight: ${val('p_insight')||'…'}\nBenefit: ${val('p_ben')||'…'}\nReason to believe: ${val('p_rtb')||'…'}\nDifferentiator: ${val('p_diff')||'…'}`;
- const lead=val('w_final')||'[paste your lead concept]';
+ const pv=(f,dr)=>val(f)||val(dr)||'…';
+ const pil=`Insight: ${pv('pf_insight','p_insight')}\nBenefit: ${pv('pf_ben','p_ben')}\nReason to believe: ${pv('pf_rtb','p_rtb')}\nDifferentiator: ${pv('pf_diff','p_diff')}`;
  const test=chosenTest()||'[monadic or comparative]';
+ const threeTxt=['w_c1','w_c2','w_c3'].map((id,i)=>val(id)?('Concept '+String.fromCharCode(65+i)+':\n'+val(id)):'').filter(Boolean).join('\n\n')||'[paste your three concepts]';
  return {
   ideas:`Act as a product innovation strategist. Topic: ${c.brief}\nMy angle: ${focus}\n\nGive me 8–10 DISTINCT concept directions for this, each in one line (name + the core idea + who it's for). Range from safe to bold. Do not write full concepts yet — just spark directions I can choose from.`,
   pillars:`Act as a concept strategist. My topic: ${c.brief}\nMy angle: ${focus}\n\nHere is my first draft of the four pillars of a concept:\n${pil}\n\n1) Sharpen each pillar so it is concrete and in the customer's words. 2) Tell me which pillar is the WEAKEST and why. 3) Suggest a stronger version of that one. Keep it honest to my angle; don't invent facts.`,
   draft:`Act as a concept writer. My topic: ${c.brief}\nMy angle: ${focus}\nMy pillars:\n${pil}\n\n1) Write my concept as a single test-ready statement of 60–100 words, from the customer's point of view, containing all four pillars.\n2) Then give me FIVE alternative concepts on the same insight — from close-to-obvious to disruptive — each 60–100 words, each labelled and with a one-line note on how it differs.\nI will choose THREE to test, so make them genuinely different from each other.`,
-  battery:`Act as a survey designer. Turn this standard concept-test battery into a short, ready-to-field survey for my concept below. Keep every item, write it as a clear question, and briefly (one line) explain to me what each item is for. Use a 1–7 scale where noted.\n\nBATTERY: purchase/try intention (1–7); relevance (1–7); uniqueness (1–7); believability (1–7); value (1–7); plus two open questions — "what do you like most?" and "what would stop you?".\n\nMY CONCEPT:\n"""\n${lead}\n"""`,
-  test:`Act as a quantitative researcher. I will run a ${test} concept test on my three concepts, using the battery (purchase intent + relevance, uniqueness, believability, value, each 1–7, + two open questions).\n\nWrite the full PROTOCOL for me:\n1) Who to ask (target audience) and how many people I realistically need per concept (per cell).\n2) How to present it: one concept per screen, price shown or hidden (say which and why), and the exact order of questions.\n3) If comparative, how to rank the three fairly and how to avoid order bias (rotation).\n4) In plain words, what result makes me pick one concept, refine it, or kill it — using purchase intent AND the diagnostics together (not just the mean).\n\nMY THREE CONCEPTS:\n"""\n${val('w_three')||'[paste your three concepts]'}\n"""`,
-  mvp:`Act as a lean-startup coach. Help me turn my lead concept into a cheap MVP that gets REAL behavioural evidence in about a week — not a finished product.\n\nMY CONCEPT:\n"""\n${lead}\n"""\n\n1) Recommend the best MVP type for this — landing-page test, concierge, Wizard-of-Oz, single-feature build, or pre-sale — and say why.\n2) DESIGN it: for a landing page, write the headline, subhead, three key bullets and the call-to-action, and name the ONE metric I measure (e.g. sign-up / click rate). For a concierge or Wizard-of-Oz, write the step-by-step script I run by hand.\n3) Tell me what result would count as a GO, and warn me about the intention-vs-behaviour trap (people say yes, then don't act).`
+  check:`Act as a strict concept-test editor. Check each of my three concepts below. For EACH one: (a) count the words and say if it is within 60–100; (b) confirm it clearly contains all four parts — INSIGHT/problem, a single BENEFIT, a REASON TO BELIEVE, a DIFFERENTIATOR — and name any that is missing or weak; (c) give me a tightened version that fixes the problems while keeping my meaning. Be concrete, not polite.\n\n${threeTxt}`,
+  battery:`Act as a survey designer. Turn this standard concept-test battery into ONE short, ready-to-field survey that measures ALL THREE of my concepts the same way (the same questions asked about each concept). Keep every item, write it as a clear question, and briefly (one line) explain what each item is for. Use a 1–7 scale where noted.\n\nBATTERY: purchase/try intention (1–7); relevance (1–7); uniqueness (1–7); believability (1–7); value (1–7); plus two open questions — "what do you like most?" and "what would stop you?".\n\nMY THREE CONCEPTS:\n"""\n${threeTxt}\n"""`,
+  test:`Act as a quantitative researcher. I will run a ${test} concept test on my three concepts, using the battery (purchase intent + relevance, uniqueness, believability, value, each 1–7, + two open questions).\n\nWrite the full PROTOCOL for me:\n1) Who to ask (target audience) and how many people I realistically need per concept (per cell).\n2) How to present it: one concept per screen, price shown or hidden (say which and why), and the exact order of questions.\n3) If comparative, how to rank the three fairly and how to avoid order bias (rotation).\n4) In plain words, what result makes me pick one concept, refine it, or kill it — using purchase intent AND the diagnostics together (not just the mean).\n\nMY THREE CONCEPTS:\n"""\n${threeTxt}\n"""`,
+  mvp:`Act as a lean-startup coach. For EACH of my three concepts below, design a cheap MVP that gets REAL behavioural evidence in about a week — not a finished product. Do all three, clearly separated (Concept A, B, C).\n\nFor each concept: 1) recommend the best MVP type — landing-page test, concierge, Wizard-of-Oz, single-feature build, or pre-sale — and say why; 2) DESIGN it: for a landing page write the headline, subhead, three key bullets and the call-to-action, and name the ONE metric to measure (e.g. sign-up / click rate); for a concierge or Wizard-of-Oz write the step-by-step script to run by hand; 3) name the result that would count as a GO, and the intention-vs-behaviour trap to watch.\n\nMY THREE CONCEPTS:\n"""\n${threeTxt}\n"""`
  };
 }
 function refreshPrompts(){const p=P();document.querySelectorAll('[data-pre]').forEach(pre=>{pre.textContent=p[pre.getAttribute('data-pre')]||'';});}
 
 // persistence
-const ids=['w_name','w_date','w_focus','w_ideas','p_insight','p_ben','p_rtb','p_diff','w_three','w_final','w_mvp','w_dec'];
-const promptIds=['w_focus','p_insight','p_ben','p_rtb','p_diff','w_three','w_final'];
+const ids=['w_name','w_date','w_focus','w_ideas','p_insight','p_ben','p_rtb','p_diff','pf_insight','pf_ben','pf_rtb','pf_diff','w_c1','w_c2','w_c3','w_survey','w_protocol','w_mvp1','w_mvp2','w_mvp3','w_dec_a','w_dec_b','w_dec_c','w_decwin'];
+const promptIds=['w_focus','p_insight','p_ben','p_rtb','p_diff','pf_insight','pf_ben','pf_rtb','pf_diff','w_c1','w_c2','w_c3'];
 let st;
 function save(){clearTimeout(st);st=setTimeout(()=>{const o={_topic:current,_test:chosenTest()};ids.forEach(i=>o[i]=val(i));
   CHECKS.forEach((_,i)=>o['ck'+i]=$('#ck'+i).checked);
@@ -276,11 +309,11 @@ function save(){clearTimeout(st);st=setTimeout(()=>{const o={_topic:current,_tes
 (function init(){let s={};try{s=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(_){}
   if(s._topic&&TOPICS[s._topic])current=s._topic;
   ids.forEach(i=>{const el=$('#'+i);if(!el)return;el.value=s[i]||'';
-    el.addEventListener('input',()=>{if(el.tagName==='TEXTAREA')autogrow(el);save();if(promptIds.includes(i))refreshPrompts();if(i==='w_final')refreshWC();});
+    el.addEventListener('input',()=>{if(el.tagName==='TEXTAREA')autogrow(el);save();if(promptIds.includes(i))refreshPrompts();if(['w_c1','w_c2','w_c3'].includes(i))updateCounts();});
     if(el.tagName==='TEXTAREA')autogrow(el);});
   CHECKS.forEach((_,i)=>{const ck=$('#ck'+i);ck.checked=!!s['ck'+i];ck.addEventListener('change',save);});
   if(s._test)[...testsEl.children].forEach(b=>{if(b.textContent===s._test)b.setAttribute('aria-pressed','true');});
-  syncPick();renderCase();refreshPrompts();refreshWC();
+  syncPick();renderCase();refreshPrompts();updateCounts();
 })();
 function copy(text,btn){const o=btn.textContent;const ok=()=>{btn.textContent='copied ✓';setTimeout(()=>btn.textContent=o,1200);};
   const fb=()=>{try{const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.top='-1000px';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);ok();}catch(_){btn.textContent='Ctrl+C';}};
