@@ -1,0 +1,292 @@
+<!doctype html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Concept lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Archivo:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  --ground:#f4f2ea;--panel:#fbfaf5;--ink:#17251d;--soft:#4a5a50;--leaf:#2f6b4f;--leaf-ink:#21503b;
+  --clay:#bd5f3f;--line:#ddd8c9;--sage:#e7ece3;--chip:#eef1e8;--shadow:0 1px 2px rgba(23,37,29,.06),0 8px 24px rgba(23,37,29,.06);
+  --c1:#3b6fb5;--c2:#2f8f8f;--c3:#c9702f;--c4:#7a6bd0;--c5:#b0466b;--c6:#2f8f8f;}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#111713;--panel:#18211b;--ink:#eef1ea;--soft:#a7b7ac;--leaf:#6bbd93;--leaf-ink:#8fd3ac;
+  --clay:#e08a68;--line:#2a352d;--sage:#1e2922;--chip:#212c25;--shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px rgba(0,0,0,.35);
+  --c1:#6ea8e6;--c2:#63c6c6;--c3:#e0a44f;--c4:#b0a6d6;--c5:#dd7ea0;}}
+:root[data-theme="dark"]{
+  --ground:#111713;--panel:#18211b;--ink:#eef1ea;--soft:#a7b7ac;--leaf:#6bbd93;--leaf-ink:#8fd3ac;
+  --clay:#e08a68;--line:#2a352d;--sage:#1e2922;--chip:#212c25;--shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px rgba(0,0,0,.35);
+  --c1:#6ea8e6;--c2:#63c6c6;--c3:#e0a44f;--c4:#b0a6d6;--c5:#dd7ea0;}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:Archivo,system-ui,sans-serif;line-height:1.55;padding-inline:clamp(16px,4vw,40px)}
+.wrap{max-width:820px;margin:0 auto}
+header{padding-block:30px 14px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.brandline{font:600 12px/1 Archivo;letter-spacing:.14em;text-transform:uppercase;color:var(--leaf);margin:0 0 8px}
+h1{font-family:Fraunces,Georgia,serif;font-weight:900;font-size:clamp(26px,5vw,36px);line-height:1.04;margin:0}
+.themebtn{background:var(--panel);border:1px solid var(--line);color:var(--soft);border-radius:999px;padding:6px 13px;font:500 13px Archivo;cursor:pointer}
+.sub{font-size:14px;color:var(--soft);margin:16px 0 4px}
+.pick{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 6px}
+.pk{flex:1;min-width:220px;border:1px solid var(--line);background:var(--panel);border-radius:12px;padding:14px 16px;cursor:pointer;text-align:left;font:inherit;color:inherit;transition:.12s}
+.pk:hover{border-color:var(--leaf)}
+.pk[aria-pressed="true"]{border-color:var(--leaf);background:var(--sage);box-shadow:var(--shadow)}
+.pk b{font-family:Fraunces,serif;font-weight:900;font-size:17px;display:block}
+.pk span{font-size:12.5px;color:var(--soft)}
+.case{background:var(--sage);border:1px solid var(--line);border-radius:14px;padding:15px 18px;margin:12px 0 6px;font-size:14.5px}
+.who{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 4px}
+.who label{display:flex;flex-direction:column;gap:4px;font:700 10.5px Archivo;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.who input{border:1px solid var(--line);border-radius:8px;padding:9px 11px;font:400 14px Archivo;background:var(--panel);color:var(--ink);min-width:200px}
+.step{background:var(--panel);border:1px solid var(--line);border-left:5px solid var(--c,var(--leaf));border-radius:12px;padding:16px 18px;margin:15px 0;box-shadow:var(--shadow)}
+.step h2{font-family:Fraunces,serif;font-weight:900;font-size:19px;margin:0 0 3px;display:flex;align-items:center;gap:10px}
+.step h2 .n{background:var(--c,var(--leaf));color:#fff;width:28px;height:28px;border-radius:8px;display:inline-flex;align-items:center;justify-content:center;font-size:16px;flex:none}
+.step .lead{color:var(--soft);font-size:13px;margin:0 0 12px}
+label.fl{display:block;font:700 11px Archivo;letter-spacing:.06em;text-transform:uppercase;margin:8px 0 6px}
+input.txt,textarea{width:100%;border:1px solid var(--line);border-radius:10px;background:var(--ground);color:var(--ink);padding:11px 13px;font:400 14px/1.5 Archivo;resize:none}
+textarea{overflow:hidden;min-height:56px}
+input.txt:focus,textarea:focus{outline:none;border-color:var(--c,var(--leaf))}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.grid2{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:2px 0 10px}
+.chip1{border:1px solid var(--line);background:var(--ground);border-radius:999px;padding:7px 13px;font:600 13px Archivo;cursor:pointer;color:var(--ink)}
+.chip1[aria-pressed="true"]{background:var(--c5);border-color:var(--c5);color:#fff}
+.copybtn{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:8px;padding:8px 13px;font:600 12.5px Archivo;cursor:pointer;margin-bottom:10px}
+.copybtn:hover{border-color:var(--leaf)}
+pre.prompt{background:#14211b;color:#e8efe6;border-radius:10px;padding:14px;margin:0 0 10px;font:400 12px/1.6 ui-monospace,monospace;white-space:pre-wrap}
+.tools2{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 12px}
+.t2{display:flex;flex-direction:column;gap:1px;background:var(--ground);border:1px solid var(--line);border-radius:9px;padding:8px 12px;text-decoration:none;color:var(--ink);font:700 13px Archivo}
+.t2 span{font:500 10.5px Archivo;color:var(--soft)}.t2.main{background:var(--c,var(--leaf));color:#fff;border-color:transparent}.t2.main span{color:rgba(255,255,255,.82)}
+.wc{font:700 12.5px Archivo;margin:6px 0}
+.wc.ok{color:var(--leaf)}.wc.bad{color:var(--clay)}
+.check{display:flex;flex-direction:column;gap:6px;margin:8px 0 0}
+.check label{display:flex;gap:9px;align-items:flex-start;font-size:13.5px;color:var(--ink);cursor:pointer}
+.check input{margin-top:3px}
+.batt{display:grid;grid-template-columns:1fr;gap:8px;margin:6px 0 10px}
+.bi{background:var(--ground);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13px}
+.bi b{color:var(--leaf-ink)}.bi .scale{color:var(--soft);font-size:12px}
+.bar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:22px 0 6px}
+.pdf{background:var(--clay);color:#fff;border:0;border-radius:10px;padding:13px 24px;font:700 15px Archivo;cursor:pointer}
+.ghost{background:transparent;border:1px solid var(--line);color:var(--soft);border-radius:10px;padding:12px 16px;font:600 13px Archivo;cursor:pointer}
+.saved{font-size:12px;color:var(--soft)}.hint{font-size:12.5px;color:var(--clay);margin:4px 0 0}
+.printonly{display:none}
+@media print{
+  header .themebtn,.pick,.chips,.tools2,.copybtn,pre.prompt,.step .lead,.bar{display:none!important}
+  body{background:#fff;color:#000;padding:0}.step{border:1px solid #bbb;border-left:5px solid #666;break-inside:avoid;box-shadow:none}
+  textarea,input.txt{border-color:#bbb;background:#fff;color:#000}.batt .bi{border-color:#ccc}
+  .printonly{display:block;margin-bottom:10px;border-bottom:2px solid #2f6b4f;padding-bottom:6px}
+}
+</style></head>
+<body><div class="wrap">
+<header>
+  <div><p class="brandline">Estudios de Mercado I · Tema 4 · Concept development (P07)</p>
+  <h1>Concept lab</h1></div>
+  <button class="themebtn" id="theme">◐ Theme</button>
+</header>
+<div class="printonly"><div style="font:700 11px Archivo;letter-spacing:.1em;text-transform:uppercase;color:#2f6b4f">Estudios de Mercado I · Tema 4 — Concept lab worksheet (P07)</div></div>
+
+<p class="sub">Pick one of the two topics, then build a testable product concept with AI as your assistant — generate ideas, write the four pillars, let AI draft alternatives (you choose 3), check the wording, build the test, and download the PDF. Each step gives you a ready prompt to copy.</p>
+<div class="pick" id="pick"></div>
+<div class="case" id="casebox"></div>
+
+<div class="who">
+  <label>Name / group <input id="w_name" placeholder="Group 3 — A. García"></label>
+  <label>Date <input id="w_date" placeholder="dd/mm/yyyy"></label>
+</div>
+
+<div class="step" style="--c:var(--c1)">
+  <h2><span class="n">1</span> Narrow the topic</h2>
+  <p class="lead">A concept needs a specific problem and a specific person. Who exactly is it for, and what tension are you solving?</p>
+  <label class="fl" for="w_focus">Your angle — for whom, and the problem you'll solve</label>
+  <textarea id="w_focus" placeholder="e.g. Travel — for first-time solo travellers (20-25) who want to go but are anxious about doing it alone."></textarea>
+</div>
+
+<div class="step" style="--c:var(--c2)">
+  <h2><span class="n">2</span> Generate ideas with AI</h2>
+  <p class="lead">Don't start from a blank page. The prompt asks AI for many directions; you keep the ones with promise.</p>
+  <div class="tools2">
+    <a class="t2 main" href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT<span>ideate</span></a>
+    <a class="t2" href="https://claude.ai" target="_blank" rel="noopener">Claude<span>ideate</span></a>
+  </div>
+  <button class="copybtn" data-p="ideas">copy the idea-generation prompt</button>
+  <pre class="prompt" data-pre="ideas"></pre>
+  <label class="fl" for="w_ideas">The 2-3 directions you want to keep</label>
+  <textarea id="w_ideas" placeholder="Paste or note the directions you liked from the AI."></textarea>
+</div>
+
+<div class="step" style="--c:var(--c3)">
+  <h2><span class="n">3</span> Write the four pillars — then let AI sharpen them</h2>
+  <p class="lead">A concept has four parts (this is the "ladder" from 4.2/4.3). Write a first version of each; the prompt tells AI to sharpen them and flag the weak one.</p>
+  <div class="grid2">
+    <div><label class="fl" for="p_insight">① Insight — the human truth / problem</label><textarea id="p_insight" placeholder="The tension for your person."></textarea></div>
+    <div><label class="fl" for="p_ben">② Benefit — the single main promise</label><textarea id="p_ben" placeholder="The one thing they get."></textarea></div>
+    <div><label class="fl" for="p_rtb">③ Reason to believe</label><textarea id="p_rtb" placeholder="Why it's credible."></textarea></div>
+    <div><label class="fl" for="p_diff">④ Differentiator</label><textarea id="p_diff" placeholder="Why this, not the alternative."></textarea></div>
+  </div>
+  <button class="copybtn" data-p="pillars" style="margin-top:8px">copy the "sharpen my pillars" prompt</button>
+  <pre class="prompt" data-pre="pillars"></pre>
+</div>
+
+<div class="step" style="--c:var(--c4)">
+  <h2><span class="n">4</span> Let AI draft concepts — you choose 3</h2>
+  <p class="lead">The prompt asks AI to write the concept from your pillars AND offer several alternatives (60-100 words each). Read them, then keep the <b>three</b> you'd actually test.</p>
+  <button class="copybtn" data-p="draft">copy the "draft + alternatives" prompt</button>
+  <pre class="prompt" data-pre="draft"></pre>
+  <label class="fl" for="w_three">Your three chosen concepts (paste them here)</label>
+  <textarea id="w_three" style="min-height:120px" placeholder="Concept A — … (60-100 words)&#10;Concept B — …&#10;Concept C — …"></textarea>
+</div>
+
+<div class="step" style="--c:var(--c5)">
+  <h2><span class="n">5</span> Check the lead concept — 60-100 words, four elements</h2>
+  <p class="lead">Paste the ONE concept you'll test first. The counter checks the length; tick that each element is really in there.</p>
+  <label class="fl" for="w_final">Lead concept (the one you test first)</label>
+  <textarea id="w_final" style="min-height:90px" placeholder="Paste the sharpened 60-100 word concept you'll put in front of people."></textarea>
+  <div class="wc" id="wc">0 words</div>
+  <div class="check" id="check"></div>
+</div>
+
+<div class="step" style="--c:var(--c6)">
+  <h2><span class="n">6</span> Build the test battery — AI helps (no scales needed yet)</h2>
+  <p class="lead">A concept test asks a few standard questions. You haven't studied scales yet, so here they are in plain words — the same for any concept. The prompt turns them into a ready survey for your concept.</p>
+  <div class="batt" id="batt"></div>
+  <details style="margin:2px 0 10px"><summary class="copybtn" style="display:inline-block">▸ see the battery written out for an example</summary>
+    <div class="case" style="margin-top:8px;font-size:13.5px">
+      <b>Example — concept: “NightTrain: spontaneous weekend rail trips for students, booked in 3 taps.”</b><br>
+      • <b>Purchase intent:</b> “How likely would you be to book a NightTrain trip in the next 3 months?” — 1 Definitely not · 2 · 3 · 4 Maybe · 5 · 6 · 7 Definitely yes.<br>
+      • <b>Relevance:</b> “This is made for someone like me.” — 1 Strongly disagree … 7 Strongly agree.<br>
+      • <b>Uniqueness:</b> “This is different from how I travel now.” — 1 … 7.<br>
+      • <b>Believability:</b> “I believe it can really get me a cheap trip in 3 taps.” — 1 … 7.<br>
+      • <b>Value:</b> “At about €39 a weekend, this is worth it.” — 1 … 7.<br>
+      • <b>Open:</b> “What do you like most about it?” · “What would stop you from using it?”<br>
+      <span class="scale" style="color:var(--soft)">Same six items work for any concept — just swap the product words. The 1–7 is a rating scale; you'll study why in Tema 5.</span>
+    </div>
+  </details>
+  <button class="copybtn" data-p="battery">copy the "build my survey" prompt</button>
+  <pre class="prompt" data-pre="battery"></pre>
+</div>
+
+<div class="step" style="--c:var(--c2)">
+  <h2><span class="n">7</span> The protocol — choose the test</h2>
+  <p class="lead">The protocol is HOW you run the test. First decide who sees what; the prompt then writes the full protocol (audience, people per concept, price shown or hidden, question order, rotation).</p>
+  <div class="batt" style="margin-bottom:10px">
+    <div class="bi"><b>Monadic</b> — each person sees ONE concept and rates it. Cleaner, more realistic; needs more people. Compare the three by their separate scores.</div>
+    <div class="bi"><b>Comparative</b> — each person sees all three and ranks them. Faster and fewer people; shows relative preference. Rotate the order so concept A isn't always first.</div>
+    <div class="bi"><b>Protocol basics either way:</b> one concept per screen · decide price shown or hidden (say which) · ask the SAME battery every time · define the target audience · aim for a realistic number per concept.</div>
+  </div>
+  <div class="chips" id="tests"></div>
+  <button class="copybtn" data-p="test">copy the "write my protocol" prompt</button>
+  <pre class="prompt" data-pre="test"></pre>
+</div>
+
+<div class="step" style="--c:var(--c3)">
+  <h2><span class="n">8</span> Build an MVP with AI</h2>
+  <p class="lead">A concept test measures what people SAY. An MVP (4.7) measures what they DO — the smallest thing you can build to get real evidence. Let AI help you design and even write it.</p>
+  <div class="tools2">
+    <a class="t2 main" href="https://chatgpt.com" target="_blank" rel="noopener">ChatGPT<span>design the MVP</span></a>
+    <a class="t2" href="https://gamma.app" target="_blank" rel="noopener">Gamma<span>build the landing page</span></a>
+    <a class="t2" href="https://claude.ai" target="_blank" rel="noopener">Claude<span>write the copy</span></a>
+  </div>
+  <button class="copybtn" data-p="mvp">copy the "help me build an MVP" prompt</button>
+  <pre class="prompt" data-pre="mvp"></pre>
+  <label class="fl" for="w_mvp">Your MVP plan — type, what you'll build, and the ONE metric</label>
+  <textarea id="w_mvp" placeholder="e.g. Landing-page test: a one-page site for NightTrain with a ‘Join the waitlist’ button. Metric: % of visitors who sign up. Paste the headline/CTA the AI wrote."></textarea>
+</div>
+
+<div class="step" style="--c:var(--c4)">
+  <h2><span class="n">9</span> Decide</h2>
+  <p class="lead">Which concept do you take forward, and what result decides it — from the concept test and the MVP together?</p>
+  <label class="fl" for="w_dec">Your decision + the go / refine / kill rule</label>
+  <textarea id="w_dec" style="min-height:88px" placeholder="e.g. Test all three comparatively; take the one with the highest purchase intent IF relevance drives it. Kill any below 35%. Confirm with the landing-page sign-up rate before building more."></textarea>
+</div>
+
+<div class="bar">
+  <button class="pdf" id="pdf">⬇ Download PDF</button>
+  <button class="ghost" id="clear">Clear worksheet</button>
+  <span class="saved" id="saved">Saved in this browser</span>
+</div>
+<p class="hint">One topic = one PDF. <b>Download before switching topic or clearing.</b> The mark is on the judgement — a concept with four clean parts, a test that matches the question, and a decision rule set in advance.</p>
+</div>
+
+<script>
+const $=s=>document.querySelector(s);
+const TOPICS={
+ travel:{name:"✈️ A new way to travel",tag:"for people 18–30",
+   brief:"Design a new travel product, service or experience for young people (18–30). It could solve planning, cost, safety, meeting people, finding local experiences — you decide the angle."},
+ find:{name:"🔎 A new way to find it",tag:"something students struggle to find",
+   brief:"Design a new way for young people to FIND something they struggle to find — a flat or flatmate, second-hand gear, weekend plans, study help, a part-time gig. Pick one thing and solve the search for it."}
+};
+const TESTS=["Monadic — each person sees ONE concept","Comparative — each person sees all 3 and ranks them"];
+const BATTERY=[
+ ["Purchase / try intention","“How likely would you be to try (or buy) this?”  1 = definitely not … 7 = definitely yes. — the headline number."],
+ ["Relevance","“Is this made for someone like me?”  1–7. — is it for them at all?"],
+ ["Uniqueness","“Is this different from what already exists?”  1–7. — your differentiator, tested."],
+ ["Believability","“Do you believe it can deliver what it promises?”  1–7. — is the reason-to-believe credible?"],
+ ["Value","“Is it worth the price / the effort?”  1–7. — worth it?"],
+ ["Two open questions","“What do you like most?”  and  “What would stop you?” — the why behind the numbers."]
+];
+const KEY='mkt3600_conceptlab';
+let current='travel';
+function val(id){const e=$('#'+id);return e?e.value.trim():'';}
+function autogrow(t){t.style.height='auto';t.style.height=(t.scrollHeight+2)+'px';}
+
+// topic picker
+const pick=$('#pick');
+Object.entries(TOPICS).forEach(([k,c])=>{const b=document.createElement('button');b.className='pk';b.type='button';b.dataset.k=k;
+  b.innerHTML=`<b>${c.name}</b><span>${c.tag}</span>`;b.onclick=()=>{current=k;syncPick();renderCase();refreshPrompts();save();};pick.appendChild(b);});
+function syncPick(){[...pick.children].forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===current));}
+function renderCase(){const c=TOPICS[current];$('#casebox').innerHTML=`<b>Topic — ${c.name}.</b> ${c.brief}`;}
+
+// test chips
+const testsEl=$('#tests');
+TESTS.forEach(t=>{const b=document.createElement('button');b.className='chip1';b.type='button';b.textContent=t;b.setAttribute('aria-pressed','false');
+  b.onclick=()=>{[...testsEl.children].forEach(x=>x.setAttribute('aria-pressed','false'));b.setAttribute('aria-pressed','true');refreshPrompts();save();};testsEl.appendChild(b);});
+function chosenTest(){const a=[...testsEl.children].find(b=>b.getAttribute('aria-pressed')==='true');return a?a.textContent:'';}
+
+// battery cards
+$('#batt').innerHTML=BATTERY.map(([n,d])=>`<div class="bi"><b>${n}.</b> ${d}`+`</div>`).join('');
+
+// 60-100 check + word count
+const CHECKS=["It states the INSIGHT / problem, in the customer's world","It promises ONE main benefit (not three)","It gives a reason to BELIEVE it","It says what makes it DIFFERENT"];
+$('#check').innerHTML=CHECKS.map((t,i)=>`<label><input type="checkbox" id="ck${i}"> ${t}</label>`).join('');
+function countWords(s){return (s.trim().match(/\S+/g)||[]).length;}
+function refreshWC(){const n=countWords(val('w_final'));const el=$('#wc');el.textContent=n+' words'+(n?` — target 60–100`:'');el.className='wc '+((n>=60&&n<=100)?'ok':(n?'bad':''));}
+
+// prompts
+function P(){
+ const c=TOPICS[current];const focus=val('w_focus')||'[for whom + the problem]';
+ const pil=`Insight: ${val('p_insight')||'…'}\nBenefit: ${val('p_ben')||'…'}\nReason to believe: ${val('p_rtb')||'…'}\nDifferentiator: ${val('p_diff')||'…'}`;
+ const lead=val('w_final')||'[paste your lead concept]';
+ const test=chosenTest()||'[monadic or comparative]';
+ return {
+  ideas:`Act as a product innovation strategist. Topic: ${c.brief}\nMy angle: ${focus}\n\nGive me 8–10 DISTINCT concept directions for this, each in one line (name + the core idea + who it's for). Range from safe to bold. Do not write full concepts yet — just spark directions I can choose from.`,
+  pillars:`Act as a concept strategist. My topic: ${c.brief}\nMy angle: ${focus}\n\nHere is my first draft of the four pillars of a concept:\n${pil}\n\n1) Sharpen each pillar so it is concrete and in the customer's words. 2) Tell me which pillar is the WEAKEST and why. 3) Suggest a stronger version of that one. Keep it honest to my angle; don't invent facts.`,
+  draft:`Act as a concept writer. My topic: ${c.brief}\nMy angle: ${focus}\nMy pillars:\n${pil}\n\n1) Write my concept as a single test-ready statement of 60–100 words, from the customer's point of view, containing all four pillars.\n2) Then give me FIVE alternative concepts on the same insight — from close-to-obvious to disruptive — each 60–100 words, each labelled and with a one-line note on how it differs.\nI will choose THREE to test, so make them genuinely different from each other.`,
+  battery:`Act as a survey designer. Turn this standard concept-test battery into a short, ready-to-field survey for my concept below. Keep every item, write it as a clear question, and briefly (one line) explain to me what each item is for. Use a 1–7 scale where noted.\n\nBATTERY: purchase/try intention (1–7); relevance (1–7); uniqueness (1–7); believability (1–7); value (1–7); plus two open questions — "what do you like most?" and "what would stop you?".\n\nMY CONCEPT:\n"""\n${lead}\n"""`,
+  test:`Act as a quantitative researcher. I will run a ${test} concept test on my three concepts, using the battery (purchase intent + relevance, uniqueness, believability, value, each 1–7, + two open questions).\n\nWrite the full PROTOCOL for me:\n1) Who to ask (target audience) and how many people I realistically need per concept (per cell).\n2) How to present it: one concept per screen, price shown or hidden (say which and why), and the exact order of questions.\n3) If comparative, how to rank the three fairly and how to avoid order bias (rotation).\n4) In plain words, what result makes me pick one concept, refine it, or kill it — using purchase intent AND the diagnostics together (not just the mean).\n\nMY THREE CONCEPTS:\n"""\n${val('w_three')||'[paste your three concepts]'}\n"""`,
+  mvp:`Act as a lean-startup coach. Help me turn my lead concept into a cheap MVP that gets REAL behavioural evidence in about a week — not a finished product.\n\nMY CONCEPT:\n"""\n${lead}\n"""\n\n1) Recommend the best MVP type for this — landing-page test, concierge, Wizard-of-Oz, single-feature build, or pre-sale — and say why.\n2) DESIGN it: for a landing page, write the headline, subhead, three key bullets and the call-to-action, and name the ONE metric I measure (e.g. sign-up / click rate). For a concierge or Wizard-of-Oz, write the step-by-step script I run by hand.\n3) Tell me what result would count as a GO, and warn me about the intention-vs-behaviour trap (people say yes, then don't act).`
+ };
+}
+function refreshPrompts(){const p=P();document.querySelectorAll('[data-pre]').forEach(pre=>{pre.textContent=p[pre.getAttribute('data-pre')]||'';});}
+
+// persistence
+const ids=['w_name','w_date','w_focus','w_ideas','p_insight','p_ben','p_rtb','p_diff','w_three','w_final','w_mvp','w_dec'];
+const promptIds=['w_focus','p_insight','p_ben','p_rtb','p_diff','w_three','w_final'];
+let st;
+function save(){clearTimeout(st);st=setTimeout(()=>{const o={_topic:current,_test:chosenTest()};ids.forEach(i=>o[i]=val(i));
+  CHECKS.forEach((_,i)=>o['ck'+i]=$('#ck'+i).checked);
+  try{localStorage.setItem(KEY,JSON.stringify(o));$('#saved').textContent='Saved ✓ '+new Date().toLocaleTimeString();}catch(_){}} ,300);}
+(function init(){let s={};try{s=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(_){}
+  if(s._topic&&TOPICS[s._topic])current=s._topic;
+  ids.forEach(i=>{const el=$('#'+i);if(!el)return;el.value=s[i]||'';
+    el.addEventListener('input',()=>{if(el.tagName==='TEXTAREA')autogrow(el);save();if(promptIds.includes(i))refreshPrompts();if(i==='w_final')refreshWC();});
+    if(el.tagName==='TEXTAREA')autogrow(el);});
+  CHECKS.forEach((_,i)=>{const ck=$('#ck'+i);ck.checked=!!s['ck'+i];ck.addEventListener('change',save);});
+  if(s._test)[...testsEl.children].forEach(b=>{if(b.textContent===s._test)b.setAttribute('aria-pressed','true');});
+  syncPick();renderCase();refreshPrompts();refreshWC();
+})();
+function copy(text,btn){const o=btn.textContent;const ok=()=>{btn.textContent='copied ✓';setTimeout(()=>btn.textContent=o,1200);};
+  const fb=()=>{try{const ta=document.createElement('textarea');ta.value=text;ta.style.position='fixed';ta.style.top='-1000px';document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);ok();}catch(_){btn.textContent='Ctrl+C';}};
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(ok).catch(fb);}else{fb();}}
+document.querySelectorAll('.copybtn[data-p]').forEach(b=>b.onclick=e=>copy(P()[b.getAttribute('data-p')],e.currentTarget));
+$('#pdf').onclick=()=>{if(!val('w_date'))$('#w_date').value=new Date().toLocaleDateString();window.print();};
+$('#clear').onclick=()=>{if(confirm('Clear the worksheet? Download your PDF first if you need it.')){localStorage.removeItem(KEY);location.reload();}};
+const root=document.documentElement;$('#theme').onclick=()=>{const c=root.getAttribute('data-theme');root.setAttribute('data-theme',c==='dark'?'light':c==='light'?'dark':(matchMedia('(prefers-color-scheme:dark)').matches?'light':'dark'));};
+</script>
+</body></html>
